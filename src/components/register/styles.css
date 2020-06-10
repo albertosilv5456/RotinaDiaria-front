@@ -1,0 +1,11 @@
+
+.register, a:link, a:visited {
+    text-decoration: none;
+    color:blue;
+}
+
+.login-container{
+    margin: 0;
+    background-color: #00B4D8;
+    height: 100vh;
+}
