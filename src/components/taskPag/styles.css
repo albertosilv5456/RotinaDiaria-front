@@ -3,14 +3,10 @@
     background-color:#f8f9fe;
 }
 div #header{
+    min-width: 70%;
     background-color:#00B4D8;
-    height: 15vh;
-
 }
 .logo2{
-    max-width: 30%;
-    min-height: 30%;
-}
-.buttonAdd,.buttonAdd:hover,.buttonAdd:focus{
-    border-color: rebeccapurple;
+    max-width: 20vw;
+    max-height: 10vh;
 }

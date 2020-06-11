@@ -6,18 +6,26 @@ export default function filter() {
             <h4 className="mt-3"> Filtrar</h4>
             <hr />
             <h5>Prioridade</h5>
-            <div className="form-check">
-                <input className="form-check-input" type="radio" name="prioridade" id="priorAlta" value="option1"></input>
-                <label className="form-check-label" htmlFor="priorAlta">
-                    Alta
+            <form className="mx-2">
+                <div className="form-check row">
+                    <input className="form-check-input" type="radio" name="prioridade" id=" Todos" value="todos" checked></input>
+                    <label className="form-check-label" htmlFor="Todos">
+                        Todos
                 </label>
-            </div>
-            <div className="form-check">
-                <input className="form-check-input" type="radio" name="prioridade" id="priorBaixa" value="option2"></input>
-                <label className="form-check-label" htmlFor="priorBaixa">
-                    Baixa
+                </div>
+                <div className="form-check row">
+                    <input className="form-check-input" type="radio" name="prioridade" id="priorAlta" value="alta"></input>
+                    <label className="form-check-label" htmlFor="priorAlta">
+                        Alta
                 </label>
-            </div>
+                </div>
+                <div className="form-check row">
+                    <input className="form-check-input" type="radio" name="prioridade" id="priorBaixa" value="baixa"></input>
+                    <label className="form-check-label" htmlFor="priorBaixa">
+                        Baixa
+                </label>
+                </div>
+            </form>
         </>
     )
 }
