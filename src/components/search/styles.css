@@ -1,10 +1,23 @@
-.search {
-    background-color:#f8f9fe;
-    border-radius: 10px;
-    min-width: 40vw;
+.search{
+  color: #fff;
+  background-color: #00B4D8;
+  border: none;
+  border-radius: 0px;
+  min-width: 40vw;
+  border-bottom: solid 1px #fff;
 
 }
-.search:focus{ 
-  -webkit-box-shadow: none; 
-  box-shadow: none; 
+
+.search:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  background-color: #00B4D8;
+  border: none;
+  border-radius: 0px;
+  min-width: 40vw;
+  border-bottom: solid 1px rebeccapurple;
+}
+.search::placeholder{
+  color: #fff;
 }

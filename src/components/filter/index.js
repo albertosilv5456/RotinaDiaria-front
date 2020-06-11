@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './styles.css'
 export default function filter() {
     return (
-        <>
+        <div className="filter">
             <h4 className="mt-3"> Filtrar</h4>
             <hr />
             <h5>Prioridade</h5>
@@ -26,6 +26,7 @@ export default function filter() {
                 </label>
                 </div>
             </form>
-        </>
+            <hr />
+        </div>
     )
 }
