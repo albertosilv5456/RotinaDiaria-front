@@ -1,13 +1,11 @@
 import React from "react";
 import {
   BrowserRouter,
-  Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Login from '../components/login'
 import Register from '../components/register'
-import Task from '../components/task'
+import Task from '../components/taskPag'
 
 export default function Router (){
     return (

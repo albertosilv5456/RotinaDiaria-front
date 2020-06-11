@@ -1,11 +1,15 @@
-
+.login-container{
+    background-color: #00B4D8;
+    min-height: 100vh;
+}
 .register, a:link, a:visited {
     text-decoration: none;
     color:blue;
 }
 
-.login-container{
-    margin: 0;
-    background-color: #00B4D8;
-    height: 100%;
+.logo{
+    width: 100%;
+}
+.loginButton:hover,.loginButton{
+    border-color: rebeccapurple;
 }

@@ -1,0 +1,10 @@
+.search {
+    background-color:#f8f9fe;
+    border-radius: 10px;
+    min-width: 40vw;
+
+}
+.search:focus{ 
+  -webkit-box-shadow: none; 
+  box-shadow: none; 
+}

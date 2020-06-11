@@ -1,24 +1,6 @@
-.container-fluid{
-    min-height: 100vh;
-    background-color:#f8f9fe;
+.taskCard{
+ border: solid 1px #00B4D8;
 }
-
-.search {
-    background-color:#f8f9fe;
-    border-radius: 10px;
-    min-width: 40vw;
-
-}
-.search:focus{ 
-  -webkit-box-shadow: none; 
-  box-shadow: none; 
-}
-.img-fluid {
-    height: 40%;
-}
-div #header{
-    background-color:#11cdef;
-    height: 20vh;
-    border-bottom: solid 1px black;
-
+.buttonEdit, .buttonEdit:hover.buttonEdit:focus{
+    border-color: rebeccapurple;
 }
