@@ -19,28 +19,28 @@ export default function addTask() {
                         <div className="modal-body">
                             <form>
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">Nome</label>
+                                    <label htmlFor="exampleFormControlInput1">Nome</label>
                                     <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Nome da atividade"></input>
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleFormControlTextarea1">Descrição</label>
+                                    <label htmlFor="exampleFormControlTextarea1">Descrição</label>
                                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição da atividade"></textarea>
                                 </div>
-                                <fieldset class="form-group">
-                                    <div class="row justify-content-start">
-                                        <legend class="col-form-label col-sm-3 pt-0">Prioridade</legend>
-                                        <div class="col-sm-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked></input>
-                                                <label class="form-check-label" for="gridRadios1">
+                                <fieldset className="form-group">
+                                    <div className="row justify-content-start">
+                                        <legend className="col-form-label col-sm-3 pt-0">Prioridade</legend>
+                                        <div className="col-sm-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked></input>
+                                                <label className="form-check-label" htmlFor="gridRadios1">
                                                     Alta
                                                  </label>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"></input>
-                                                <label class="form-check-label" for="gridRadios2">
+                                        <div className="col-sm-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"></input>
+                                                <label className="form-check-label" htmlFor="gridRadios2">
                                                     Baixa
                                                     </label>
                                             </div>

@@ -1,37 +1,56 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import './styles.css'
 import img from '../../img/logo2.png'
+import user from '../../img/img.jpeg'
 import Filter from '../filter'
 import Search from '../search'
 import Task from '../task'
 import AddTask from '../AddTask'
+import {useHistory } from 'react-router-dom'
 export default function TaskPag() {
+    const history = useHistory()
+    useEffect(()=>{
+        let loginUser = JSON.parse(localStorage.getItem('user'))
+        console.log(loginUser)
+    },[])
+    function logout(){
+            localStorage.removeItem('user')
+            history.go('/')
+    }
     return (
         <div className="container-fluid">
-            <div className="row mb-2" id="header">
-                <div className="col-6 col-md-3 order-1 order-md-1">
-                    <img src={img} className="img-fluid mt-1 logo2" alt="Logo Task" />
+            <div className="row justify-content-between" id="header">
+                <div className="order-1 order-md-1">
+                    <img src={img} className="img-fluid mt-3 mx-2 logo2" alt="Logo Task" />
                 </div>
-                <div className="col-12 col-md-6 order-3 order-md-2 my-3">
+                <div className="order-3 order-md-2 m-3">
                     <Search />
                 </div>
-                <div className="col-6 col-md-3 order-2 order-md-3 my-3 ">
-                    <button type="button" className="btn btn-light  px-3">
-                        <span className="glyphicon glyphicon-log-out"></span> Log out
-                    </button>
+                <div className="order-2 order-md-3 mt-1 ">
+                    <div className="dropdown">
+                        <a className="nav-link dropdown userButton mx-2" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span className="mr-2 ">Jose</span>
+                            <img className="rounded-circle user" src={user} />
+                        </a>
+                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a className="dropdown-item" href="#">Profile</a>
+                            <hr />
+                            <button className="dropdown-item" onClick={logout}>Logout</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="row justify-content-around">
-                <div className="col-12 col-sm-4 col-md-3  col-lg-2  filter">
-                    <Filter />
-                </div>
-                <div className="col-12 col-sm-8 col-md-9  col-lg-10 ">
-                    <div className="row ">
-                        <div className="col-12 my-4 ">
+                <div className="col-12">
+                    <div className="row my-4 justify-content-around">
+                        <div className="">
                             <h4>Bem Vindo, Jose!</h4>
                         </div>
-                        <div className="col-12 my-3 ">
-                            <AddTask/>
+                        <div className="m-2">
+                            <Filter />
+                        </div>
+                        <div className="">
+                            <AddTask />
                         </div>
                     </div>
                     <div className="row justify-content-around">

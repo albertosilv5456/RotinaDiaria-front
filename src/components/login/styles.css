@@ -4,6 +4,9 @@
 }
 .register, a:link, a:visited {
     text-decoration: none;
+    
+}
+.register{
     color:blue;
 }
 
@@ -12,4 +15,7 @@
 }
 .loginButton:hover,.loginButton{
     border-color: rebeccapurple;
+}
+.validet {
+    color:blue;
 }

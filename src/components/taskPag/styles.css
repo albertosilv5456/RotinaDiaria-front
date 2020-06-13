@@ -1,12 +1,22 @@
-.container-fluid{
+.container-fluid {
     min-height: 100vh;
-    background-color:#f8f9fe;
+    background-color: #f8f9fe;
 }
-div #header{
-    min-width: 70%;
-    background-color:#00B4D8;
+
+div #header {
+    background-color: #00B4D8; 
 }
-.logo2{
+
+.logo2 {
     max-width: 20vw;
     max-height: 10vh;
+}
+
+.userButton,.userButton:focus,.userButton:hover{
+   color:#fff
+
+}
+.user {
+    max-width: 60px;
+    max-height: 60px;
 }
