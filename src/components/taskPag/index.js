@@ -1,21 +1,41 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles.css'
 import img from '../../img/logo2.png'
-import user from '../../img/img.jpeg'
+import userImg from '../../img/img.jpeg'
 import Filter from '../filter'
 import Search from '../search'
 import Task from '../task'
-import AddTask from '../AddTask'
-import {useHistory } from 'react-router-dom'
+import AddTaskModal from'../AddTask'
+import { useHistory } from 'react-router-dom'
+import api from '../../services'
 export default function TaskPag() {
+    const [user, setUser] = useState({
+        id: 0,
+        name: '',
+        email: ''
+    })
+    const [taskAll, setTaskAll] = useState([])
+    const [token, setToken] = useState('')
     const history = useHistory()
-    useEffect(()=>{
-        let loginUser = JSON.parse(localStorage.getItem('user'))
-        console.log(loginUser)
-    },[])
-    function logout(){
-            localStorage.removeItem('user')
-            history.go('/')
+    useEffect(() => {
+            const loginUser = JSON.parse(localStorage.getItem('user'))
+            setToken(loginUser.token)
+            setUser({
+                name: loginUser.user.nome,
+                email: loginUser.user.email,
+                id: loginUser.user._id
+            })
+            const config = {
+                headers: { Authorization: `Bearer ${loginUser.token}` }
+            };
+            api.get(`/${loginUser.user._id}/tarefas`, config).then((res) => {
+                    setTaskAll(res.data)
+            })
+    }, [])
+
+    function logout() {       
+        localStorage.removeItem('user')
+        history.go('/')
     }
     return (
         <div className="container-fluid">
@@ -29,8 +49,8 @@ export default function TaskPag() {
                 <div className="order-2 order-md-3 mt-1 ">
                     <div className="dropdown">
                         <a className="nav-link dropdown userButton mx-2" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span className="mr-2 ">Jose</span>
-                            <img className="rounded-circle user" src={user} />
+                            <span className="mr-2 ">{user.name}</span>
+                            <img className="rounded-circle user" src={userImg} />
                         </a>
                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <a className="dropdown-item" href="#">Profile</a>
@@ -44,29 +64,21 @@ export default function TaskPag() {
                 <div className="col-12">
                     <div className="row my-4 justify-content-around">
                         <div className="">
-                            <h4>Bem Vindo, Jose!</h4>
+                            <h4>Bem Vindo, {user.name}!</h4>
                         </div>
                         <div className="m-2">
-                            <Filter />
+                            <Filter setTaskAll={setTaskAll}  />
                         </div>
                         <div className="">
-                            <AddTask />
+                            <AddTaskModal setTaskAll={setTaskAll} user={user} token={token}/>
                         </div>
                     </div>
                     <div className="row justify-content-around">
-                        <div className="col-12 col-md-6 col-lg-4 col-xl-3 my-1">
-                            <Task />
-                        </div>
-                        <div className="col-12  col-md-6 col-lg-4 col-xl-3 my-1 ">
-                            <Task />
-                        </div>
-                        <div className="col-12  col-md-6 col-lg-4 col-xl-3 my-1">
-                            <Task />
-                        </div>
-                        <div className="col-12  col-md-6 col-lg-4 col-xl-3 my-1">
-                            <Task />
-                        </div>
-
+                       {taskAll.map(task =>(
+                           <div className="col-12  col-md-6 col-lg-4 col-xl-3 my-1">
+                           <Task setTaskAll={setTaskAll} task={task}/>
+                       </div>
+                       ))}
                     </div>
                 </div>
             </div>

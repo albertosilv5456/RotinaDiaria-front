@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-export default function editModal() {
+export default function EditModal() {
     return (
         <>
             <button type="button" className="btn card-link buttonEdit" data-toggle="modal" data-target="#editModal">

@@ -48,11 +48,11 @@ function Register() {
             }
             api.post('register', data)
                 .then((res) => {
-                    localStorage.setItem('user',JSON.stringify(res))
+                    localStorage.setItem('user',JSON.stringify(res.data))
                     history.go('/task')
                 }).catch((er) => {
-                    document.getElementById('emailRegister').classList.remove('d-none')
-                    document.getElementById('emailRegister').classList.add('d-flex')
+                    document.getElementById('emailRegisterMsg').classList.remove('d-none')
+                    document.getElementById('emailRegisterMsg').classList.add('d-flex')
                 })
 
         } else {
@@ -81,30 +81,30 @@ function Register() {
                 <div className="card d-flex justify-content-center px-5  py-1  border-info">
                     <img src={img} className="img-fluid my-2" alt="Logo Task" />
                     <form className="mt-5  px-1" onSubmit={handleSubmit}>
-                        <div id="emailRegister"className="form-group mx-3  justify-content-center  d-none validate">
+                        <div id="emailRegisterMsg"className="form-group mx-3  justify-content-center  d-none validate">
                            Email já  cadastrado anteriormente
                         </div>
                         <div className="form-group mx-3">
                             <label htmlFor="name">Nome</label>
-                            <input type="text" className="form-control" name="nome" id="name" onBlur={handleName} aria-describedby="name"></input>
+                            <input type="text" className="form-control" name="nome" id="nameRegister" onBlur={handleName} aria-describedby="name"></input>
                             <div id="validateName" className="validate d-none ">
                                 Digite seu nome completo
                              </div>
                         </div>
                         <div className="form-group mx-3">
                             <label htmlFor="email1">Email</label>
-                            <input type="email" className="form-control" id="email1" name="email" onBlur={handleEmail} aria-describedby="email"></input>
+                            <input type="email" className="form-control" id="email1Register" name="email" onBlur={handleEmail} aria-describedby="email"></input>
                             <div id="validateEmail" className="validate d-none">
                                 Insira um e-mail válido
                             </div>
                         </div>
                         <div className="form-group mx-3">
                             <label htmlFor="password">Senha</label>
-                            <input type="password" className="form-control" id="password" name="password" onBlur={handlPassword} aria-describedby="password"></input>
+                            <input type="password" className="form-control" id="passwordRegister" name="password" onBlur={handlPassword} aria-describedby="password"></input>
                         </div>
                         <div className="form-group mx-3">
                             <label htmlFor="password2">Confirme sua senha</label>
-                            <input type="password" className="form-control" name="passwordValidate" onBlur={handlPasswordValidate} id="password2"></input>
+                            <input type="password" className="form-control" name="passwordValidateRegister" onBlur={handlPasswordValidate} id="password2"></input>
                             <div id="validatePassword" className="validate d-none">
                                 Senhas não conferem.
                              </div>
