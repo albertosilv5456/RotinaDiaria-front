@@ -2,7 +2,9 @@ import React from 'react'
 import './styles.css'
 import api from '../../services'
 export default function DeleteModal({task, setTaskAll}) {
+    
     async function handleDelete(){
+        console.log(task)
             const loginUser = JSON.parse(localStorage.getItem('user'))
             const token = loginUser.token
             const config = {

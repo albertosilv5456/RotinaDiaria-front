@@ -75,7 +75,7 @@ export default function TaskPag() {
                     </div>
                     <div className="row justify-content-around">
                        {taskAll.map(task =>(
-                           <div className="col-12  col-md-6 col-lg-4 col-xl-3 my-1">
+                           <div key={task._id}className="col-12  col-md-6 col-lg-4 col-xl-3 my-1">
                            <Task setTaskAll={setTaskAll} task={task}/>
                        </div>
                        ))}
