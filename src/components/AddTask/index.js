@@ -62,7 +62,7 @@ function AddTask({ setTaskAll,user,token }) {
                                         <legend className="col-form-label col-sm-3 pt-0">Prioridade</legend>
                                         <div className="col-sm-3">
                                             <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="addprioridade" id="addprioridade" value="alta" ></input>
+                                                <input className="form-check-input" type="radio" name="addprioridade" id="addprioridade" value="alta" defaultChecked ></input>
                                                 <label className="form-check-label" htmlFor="addprioridade1">
                                                     Alta
                                                  </label>

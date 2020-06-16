@@ -10,7 +10,7 @@ export default function Filter({ setTaskAll }) {
             headers: { Authorization: `Bearer ${token}` }
         };
         await api.get(`/${loginUser.user._id}/tarefas`, config).then((res) => {
-            if (prioridade == 'todos') {
+            if (prioridade === 'todos') {
                 setTaskAll(res.data)
             }
             else {
@@ -26,7 +26,7 @@ export default function Filter({ setTaskAll }) {
         <div className="filter">
             <div className="mx-2 row ">
                 <div className="form-check col-12 col-md-4">
-                    <input className="form-check-input" type="radio" name="prioridade" id="Todos" value="todos" onClick={taskPrioridade} c></input>
+                    <input className="form-check-input" type="radio" name="prioridade" id="Todos" value="todos" onClick={taskPrioridade} ></input>
                     <label className="form-check-label" htmlFor="Todos">
                         Todos
                 </label>
