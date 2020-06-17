@@ -32,11 +32,11 @@ export default function Filter({ setTaskAll }) {
                 </label>
                 </div>
                 <div className="form-check col-12 col-md-4">
-                    <input className="form-check-input" type="radio" name="prioridade" id="priorAlta" onClick={taskPrioridade} value="alta"></input>
+                    <input className="form-check-input" type="radio" name="prioridade" id="priorAlta" onClick={taskPrioridade} value="Alta"></input>
                     <label className="form-check-label" htmlFor="priorAlta">Prioridade Alta</label>
                 </div>
                 <div className="form-check col-12 col-md-4 ">
-                    <input className="form-check-input" type="radio" name="prioridade" id="priorBaixa" onClick={taskPrioridade} value="baixa"></input>
+                    <input className="form-check-input" type="radio" name="prioridade" id="priorBaixa" onClick={taskPrioridade} value="Baixa"></input>
                     <label className="form-check-label" htmlFor="priorBaixa">Prioridade Baixa
                 </label>
                 </div>

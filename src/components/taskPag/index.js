@@ -15,6 +15,7 @@ export default function TaskPag() {
     const [taskAll, setTaskAll] = useState([])
     const [token, setToken] = useState('')
     const history = useHistory()
+
     useEffect(() => {
         const loginUser = JSON.parse(localStorage.getItem('userTask'))
         setToken(loginUser.token)
@@ -30,6 +31,7 @@ export default function TaskPag() {
             setTaskAll(res.data)
         })
     }, [])
+
     async function handleDelete(task) {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
@@ -41,6 +43,7 @@ export default function TaskPag() {
             setTaskAll(res.data)
         })
     }
+
     function handleEdit(task) {
         document.getElementById(`${task._id}task`).classList.remove('d-flex')
         document.getElementById(`${task._id}edit`).classList.remove('d-none')
@@ -48,13 +51,14 @@ export default function TaskPag() {
         document.getElementById(`${task._id}edit`).classList.add('d-flex')
         document.getElementById(`${task._id}name`).value = task.nome
         document.getElementById(`${task._id}descri`).value = task.descricao
-        if (task.prioridade === 'alta') {
+        if (task.prioridade === 'Alta') {
             document.getElementById(`${task._id}prio1`).setAttribute('checked', true)
         }
         else {
             document.getElementById(`${task._id}prio2`).setAttribute('checked', true)
         }
     }
+
     async function handleEditSave(task) {
         const prioridade = document.querySelector('input[name="editPrio"]:checked').value;
         const nome = document.getElementById(`${task._id}name`).value
@@ -78,11 +82,13 @@ export default function TaskPag() {
             setTaskAll(res.data)
         })
     }
+
     function handleCancele(task) {
         document.getElementById(`${task._id}edit`).classList.remove('d-flex')
         document.getElementById(`${task._id}task`).classList.remove('d-none')
         document.getElementById(`${task._id}edit`).classList.add('d-none')
     }
+
     function logout() {
         localStorage.removeItem('userTask')
         const config = {
@@ -92,6 +98,7 @@ export default function TaskPag() {
             history.go('/')
         })
     }
+
     return (
         <div className="container-fluid">
             <div className="row justify-content-between" id="header">
@@ -124,9 +131,9 @@ export default function TaskPag() {
                                 <div className="card taskCard" style={{ borderRadius: "5px" }}>
                                     <div className="card taskCard" style={{ borderRadius: "5px" }}>
                                         <div id={`${task._id}task`} className="card-body">
-                                            <h5 className="card-title">{task.nome}</h5>
-                                            <h6 className="card-subtitle mb-2 text-muted">{task.prioridade}</h6>
-                                            <p className="card-text">{task.descricao}</p>
+                                            <h5 className="card-title">Nome:{task.nome}</h5>
+                                            <h6 className="card-subtitle mb-2 text-muted">Prioridade{task.prioridade}</h6>
+                                            <p className="card-text">Descrição:{task.descricao}</p>
                                             <div className=" d-flex justify-content-around">
                                                 <div className="d-flex justify-content-around">
                                                     <button type="button" className="btn  buttonEdit mx-2" onClick={() => handleEdit(task)}>
@@ -154,7 +161,7 @@ export default function TaskPag() {
                                                         <legend className="col-form-label col-sm-5 pt-0">Prioridade</legend>
                                                         <div className="col-sm-3">
                                                             <div className="form-check">
-                                                                <input className="form-check-input" type="radio" name="editPrio" id={`${task._id}prio1`} value="alta" ></input>
+                                                                <input className="form-check-input" type="radio" name="editPrio" id={`${task._id}prio1`} value="Alta" ></input>
                                                                 <label className="form-check-label" htmlFor="editPrio1">
                                                                     Alta
                                                                 </label>
@@ -162,7 +169,7 @@ export default function TaskPag() {
                                                         </div>
                                                         <div className="col-sm-3">
                                                             <div className="form-check">
-                                                                <input className="form-check-input" type="radio" name="editPrio" id={`${task._id}prio2`} value="baixa"></input>
+                                                                <input className="form-check-input" type="radio" name="editPrio" id={`${task._id}prio2`} value="Baixa"></input>
                                                                 <label className="form-check-label" htmlFor="editPrio2">
                                                                     Baixa
                                                                 </label>
