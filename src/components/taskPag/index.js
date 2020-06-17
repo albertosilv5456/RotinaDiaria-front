@@ -88,7 +88,7 @@ export default function TaskPag() {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        api.get('./logou',config).then(res=>{
+        api.get('./logout',config).then(res=>{
             history.go('/')
         })
     }
