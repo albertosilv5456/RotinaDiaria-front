@@ -4,7 +4,7 @@ import api from '../../services'
 export default function Search({ taskAll, setTaskAll }) {
     const [search, setSearch] = useState('')
     async function handleKeyDown() {
-        const loginUser = JSON.parse(localStorage.getItem('user'))
+        const loginUser = JSON.parse(localStorage.getItem('userTask'))
             const config = {
                 headers: { Authorization: `Bearer ${loginUser.token}` }
             };

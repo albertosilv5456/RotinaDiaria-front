@@ -24,7 +24,7 @@ function Login() {
         const{email,password} = data
         await api.post('/',{email,password})
             .then((res) => {
-                localStorage.setItem('user',JSON.stringify(res.data))
+                localStorage.setItem('userTask',JSON.stringify(res.data))
                 history.go('/task')
             }).catch((er) => {
                 document.getElementById('loginValidate').classList.remove('d-none')

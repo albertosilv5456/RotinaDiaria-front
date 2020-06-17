@@ -48,7 +48,7 @@ function Register() {
             }
             api.post('register', data)
                 .then((res) => {
-                    localStorage.setItem('user',JSON.stringify(res.data))
+                    localStorage.setItem('userTask',JSON.stringify(res.data))
                     history.go('/task')
                 }).catch((er) => {
                     document.getElementById('emailRegisterMsg').classList.remove('d-none')

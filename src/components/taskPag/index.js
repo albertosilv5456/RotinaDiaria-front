@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './styles.css'
 import img from '../../img/logo2.png'
-import userImg from '../../img/img.jpeg'
+import api from '../../services'
 import Filter from '../filter'
 import Search from '../search'
 import AddTaskModal from '../AddTask'
 import { useHistory } from 'react-router-dom'
-import api from '../../services'
 export default function TaskPag() {
     const [user, setUser] = useState({
         id: 0,
@@ -17,7 +16,7 @@ export default function TaskPag() {
     const [token, setToken] = useState('')
     const history = useHistory()
     useEffect(() => {
-        const loginUser = JSON.parse(localStorage.getItem('user'))
+        const loginUser = JSON.parse(localStorage.getItem('userTask'))
         setToken(loginUser.token)
         setUser({
             name: loginUser.user.nome,
@@ -85,8 +84,13 @@ export default function TaskPag() {
         document.getElementById(`${task._id}edit`).classList.add('d-none')
     }
     function logout() {
-        localStorage.removeItem('user')
-        history.go('/')
+        localStorage.removeItem('userTask')
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        api.get('./logou',config).then(res=>{
+            history.go('/')
+        })
     }
     return (
         <div className="container-fluid">
@@ -98,7 +102,7 @@ export default function TaskPag() {
                     <Search taskAll={taskAll}setTaskAll={setTaskAll}/>
                 </div>
                 <div className="order-2 order-md-3 m-4 buttonLogout ">           
-                            <button className="btn  buttonEdit mx-2 " onClick={logout}>Logout</button>
+                            <button className="btn  buttonEdit mx-2 " onClick={()=>logout()}>Logout</button>
                 </div>
             </div>
             <div className="row justify-content-around">

@@ -4,7 +4,7 @@ import api from '../../services'
 export default function Filter({ setTaskAll }) {
     async function taskPrioridade() {
         const prioridade = document.querySelector('input[name="prioridade"]:checked').value;
-        const loginUser = JSON.parse(localStorage.getItem('user'))
+        const loginUser = JSON.parse(localStorage.getItem('userTask'))
         const token = loginUser.token
         const config = {
             headers: { Authorization: `Bearer ${token}` }
