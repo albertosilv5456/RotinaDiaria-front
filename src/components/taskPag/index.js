@@ -131,9 +131,9 @@ export default function TaskPag() {
                                 <div className="card taskCard" style={{ borderRadius: "5px" }}>
                                     <div className="card taskCard" style={{ borderRadius: "5px" }}>
                                         <div id={`${task._id}task`} className="card-body">
-                                            <h5 className="card-title">Nome:{task.nome}</h5>
-                                            <h6 className="card-subtitle mb-2 text-muted">Prioridade{task.prioridade}</h6>
-                                            <p className="card-text">Descrição:{task.descricao}</p>
+                                            <h5 className="card-title">Nome: {task.nome}</h5>
+                                            <h6 className="card-subtitle mb-2 text-muted">Prioridade: {task.prioridade}</h6>
+                                            <p className="card-text">Descrição: {task.descricao}</p>
                                             <div className=" d-flex justify-content-around">
                                                 <div className="d-flex justify-content-around">
                                                     <button type="button" className="btn  buttonEdit mx-2" onClick={() => handleEdit(task)}>

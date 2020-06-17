@@ -15,7 +15,7 @@ export default function Filter({ setTaskAll }) {
             }
             else {
                 setTaskAll(res.data.filter(e => {
-                    return e.prioridade.toLowerCase() === prioridade
+                    return e.prioridade.toLowerCase() === prioridade.toLowerCase()
                 }))
             }
 
